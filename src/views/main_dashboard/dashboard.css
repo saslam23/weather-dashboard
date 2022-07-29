@@ -1,0 +1,13 @@
+svg > g[class^="raphael-group-"] > text{
+    fill: #f9f9f9 !important;
+}
+[pointer-events="bounding-box"] {
+    display: none
+}
+
+.raphael-group-79-background >rect,
+.raphael-group-10-background>rect
+{
+   fill: #fdfdfd !important;
+}
+

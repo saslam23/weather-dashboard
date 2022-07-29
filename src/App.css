@@ -1,7 +1,10 @@
 .App {
   text-align: center;
+  background-color:#f9f9f9;
 }
-
+.css-tzssek-MuiSvgIcon-root{
+  font-size: 3rem !important;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;

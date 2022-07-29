@@ -1,0 +1,84 @@
+// STEP 1 - Include Dependencies
+
+// Include react
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+// Include the react-fusioncharts component
+import ReactFC from 'react-fusioncharts';
+
+// Include the fusioncharts library
+import FusionCharts from 'fusioncharts';
+
+//Import the Widgets
+import Widgets from 'fusioncharts/fusioncharts.widgets';
+
+// Include the theme as fusion
+import FusionTheme from 'fusioncharts/themes/fusioncharts.theme.fusion';
+
+// Adding the chart and theme as dependency to the core fusioncharts
+ReactFC.fcRoot(FusionCharts, Widgets, FusionTheme);
+
+
+
+// STEP 3 - Creating the DOM element to pass the react-fusioncharts component
+export default function Linear({humidity}){
+
+ 
+  
+  // STEP 3 - Creating the JSON object to store the chart configurations
+  const chartConfigs = {
+      type: 'hlineargauge',// The chart type
+      width: '100%', // Width of the chart
+      height: '120',
+      backgroundColor: "#f9f9f9", // Height of the chart
+      dataFormat: 'json', // Data type
+      dataSource: {
+        chart: {
+          
+            caption: "",
+            subcaption: "",
+            numbersuffix: "",
+            gaugefillmix: "{dark-20},{light+70},{dark-10}",
+            theme: "fusion"
+          },
+          colorrange: {
+        
+        "gradient": "1",
+            color: [
+              {
+                minvalue: "0",
+                maxvalue: "100",
+                label: "",
+                code: "#4dabf5"
+              },
+              
+              {
+                minvalue: humidity,
+                maxvalue: "100",
+                label: "",
+                code: "#f0f0f0"
+              }
+            ]
+          },
+          pointers: {
+            pointer: [
+              {
+                value: humidity
+              }
+            ]
+          }
+      }
+  }
+  
+     return (
+        <>
+         <h2>Humidity</h2>
+    <div style={{marginTop:"4rem"}}>
+     <ReactFC
+        {...chartConfigs}/>
+        </div>          
+        </>
+  
+     );
+}
