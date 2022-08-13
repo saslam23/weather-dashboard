@@ -3,7 +3,8 @@ import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import CssBaseline from '@mui/material/CssBaseline';
 import AppBar from '@mui/material/AppBar';
-
+import Backdrop from "@mui/material/Backdrop";
+import  CircularProgress  from "@mui/material/CircularProgress";
 import Typography from '@mui/material/Typography';
 import Autocomplete from '@mui/material/Autocomplete';
 import TextField from '@mui/material/TextField';
@@ -14,7 +15,7 @@ import {cityList} from '../../data/cityList';
 
 const drawerWidth = 350;
 
-export default function WeatherDrawer({weatherData, changeCity, cityLabel}) {
+export default function WeatherDrawer({weatherData, changeCity, cityLabel, isLoading}) {
 
 var time = new Date(weatherData.list && weatherData.list[0].dt_txt)
 
@@ -47,6 +48,8 @@ timeValue += (hours >= 12) ? " p.m." : " a.m.";  // get AM/P
 
 dateValue = monthNames[month]  + " " + day + ', ' + year;
   return (
+    <>
+  
     <Box sx={{ display: 'flex'}}>
       <CssBaseline />
       <AppBar
@@ -73,7 +76,13 @@ dateValue = monthNames[month]  + " " + day + ', ' + year;
         anchor="left"
         
       >
-
+          {isLoading ? <Backdrop
+      sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+      open={true}
+    >
+      <CircularProgress color="inherit" />
+    </Backdrop> :
+  <div>
         <Typography sx={{color:'#f0f0f0', marginTop:'1rem'}} variant="h4">Today's Forecast</Typography>
         <div style={{margin:'10px', marginLeft:'25px'}}>
        <Autocomplete
@@ -124,6 +133,8 @@ dateValue = monthNames[month]  + " " + day + ', ' + year;
        </div>
 
        </div>
+       </div>
+}
       </Drawer>
       <Box
         component="main"
@@ -132,5 +143,6 @@ dateValue = monthNames[month]  + " " + day + ', ' + year;
       <Dashboard dateValue={dateValue}  weatherData={weatherData}/>
       </Box>
     </Box>
+    </>
   );
 }

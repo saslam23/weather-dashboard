@@ -3,8 +3,7 @@ import './App.css';
 import WeatherDrawer from './views/weather_drawer/WeatherDrawer';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import axios from "axios";
-import Backdrop from "@mui/material/Backdrop";
-import  CircularProgress  from "@mui/material/CircularProgress";
+
 
 function App() {
   const [cityData, setCityData] = useState([]);
@@ -45,8 +44,7 @@ const [isLoading, setIsLoading] = useState(false);
     .then((result) =>
     {
       setCityData(result.data)
-      
-      console.log(result.data)
+  
       
     }
     )
@@ -61,14 +59,9 @@ const [isLoading, setIsLoading] = useState(false);
     <div className="App">
       <ThemeProvider theme={theme}>
         <div >
-        {isLoading ? <Backdrop
-        sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
-        open={true}
-      >
-        <CircularProgress color="inherit" />
-      </Backdrop> :
-        <WeatherDrawer cityLabel={cityLabel} changeCity={changeCity} weatherData={cityData}/>
-        }
+
+        <WeatherDrawer isLoading={isLoading} cityLabel={cityLabel} changeCity={changeCity} weatherData={cityData}/>
+
         </div>
     
       </ThemeProvider>
