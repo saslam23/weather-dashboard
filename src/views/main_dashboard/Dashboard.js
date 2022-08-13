@@ -90,6 +90,9 @@ export default function Dashboard({weatherData, dateValue}) {
   })
 
 const getData = () =>{
+  if(filteredData.length === 0) {
+    setDailyTemperature([])
+  }
   if(filteredData.length > 0){
     setDailyTemperature([]);
   }
@@ -111,7 +114,6 @@ timeValue += (minutes < 10) ? ":0" + minutes : ":" + minutes;  // get minutes
 timeValue += (hours >= 12) ? " p.m." : " a.m.";  // get AM/P
 
      setDailyTemperature(prevState => [...prevState, {label:timeValue, value:Math.round((((( item.main.temp-273.15)*1.8) + 32)) * 100 /100)}]) 
- 
    })
   }
  
@@ -169,7 +171,7 @@ dateValue = monthNames[month]  + " " + day + ', ' + year;
   setSingleDayData(data);
   setDayOfWeek(dayName);
   setFullDate(dateValue)
-  console.log(data, dayName, 'data here')
+  console.log(data, "DATAAAAA")
 }
 
 const theme = useTheme();
