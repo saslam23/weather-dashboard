@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import './App.css';
 import WeatherDrawer from './views/weather_drawer/WeatherDrawer';
-import { useTheme, createTheme, ThemeProvider } from '@mui/material/styles';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 import axios from "axios";
 import Backdrop from "@mui/material/Backdrop";
 import  CircularProgress  from "@mui/material/CircularProgress";

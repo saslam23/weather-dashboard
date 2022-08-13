@@ -24,18 +24,11 @@ ReactFC.fcRoot(FusionCharts, Widgets, FusionTheme);
 
 // STEP 3 - Creating the DOM element to pass the react-fusioncharts component
 export default function LineChart({chartData, fullDate}){
-    const [dailyTemperature, setDailyTemperature] = useState([]);
 
-    const date = new Date();
+
     const month = fullDate.toLocaleString();
 
-const suffix = () =>{
-  return(
-    <>
-    <h5>&#176; F</h5>
-    </>
-  )
-}
+
   const chartConfigs = {
       type: 'line',// The chart type
       width: '100%', // Width of the chart
