@@ -73,7 +73,7 @@ dateValue = monthNames[month]  + " " + day + ', ' + year;
 
         <Typography sx={{color:'#f0f0f0', marginTop:'1rem'}} variant="h4">Today's Forecast</Typography>
         
-        <img style={{width:'405px', marginTop:'5rem'}} src="/assets/cloudy.svg" alt="weather_image"/>
+        <img style={{width:'405px', marginTop:'5rem'}} src="../../assets/cloudy.svg" alt="weather_image"/>
         <div style={{marginLeft:'15px'}}>
         <div>
               <div style={{display:'flex'}}>
