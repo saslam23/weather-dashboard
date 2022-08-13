@@ -93,7 +93,7 @@ useEffect(() => {
             {
        
               value: "100%",
-              color:'#f0f0f0'
+              color:'#e0dede'
             }
           ]
   

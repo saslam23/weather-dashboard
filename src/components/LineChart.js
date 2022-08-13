@@ -44,6 +44,7 @@ const suffix = () =>{
       dataSource: {
         chart: {
             caption: "Daily Temperature Over Time",
+            xaxisname:"Time",
             yaxisname: "Temperature(F)",
             subcaption: month,
             numbersuffix:  "\u00b0 F",

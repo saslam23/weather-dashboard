@@ -58,7 +58,7 @@ export default function Linear({value}){
                 minvalue: value,
                 maxvalue: "100",
                 label: "",
-                code: "#f0f0f0"
+                code: "#e0dede"
               }
             ]
           },

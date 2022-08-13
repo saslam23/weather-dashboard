@@ -1,4 +1,5 @@
 import React, {useEffect} from 'react'
+import "./value-card.css"
 
 export default function ValueCard({title, value, icon}) {
   useEffect(() => {

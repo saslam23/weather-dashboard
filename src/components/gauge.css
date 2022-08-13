@@ -5,6 +5,25 @@
     position:absolute; bottom:48%; right:10%; z-index:1;
 }
 
+@media screen and (max-width: 1504px) {
+    .sunset{
+        right: 12%;
+    }
+    .sunrise{
+        left:12%;
+    }
+}
+
+
+@media screen and (max-width: 1600px) {
+    .sunset{
+        right: 15%;
+    }
+    .sunrise{
+        left:15%;
+    }
+}
+
 @media screen and (min-width: 2000px) {
     .sunset{
         right: 12%;

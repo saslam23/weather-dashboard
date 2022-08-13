@@ -87,7 +87,7 @@ const colorRange = {
         "color": [{
             "minValue": "0",
             "maxValue": "20",
-            "code": "#f0f0f0"
+            "code": "#e0dede"
         },
         {
           "minValue":"20",
@@ -97,7 +97,7 @@ const colorRange = {
         {
             "minValue": "80",
             "maxValue": "100",
-            "code": "#f0f0f0"
+            "code": "#e0dede"
         }
         ]}
       }

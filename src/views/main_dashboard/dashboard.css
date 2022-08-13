@@ -15,3 +15,10 @@ svg > g[class^="raphael-group-"] > text{
 .css-tzssek-MuiSvgIcon-root {
     color:#4dabf5 !important;
 }
+
+
+.css-bjeq7w{
+    box-shadow:none !important;
+    color: black !important;
+    background-color:transparent !important;
+}

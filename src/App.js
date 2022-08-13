@@ -1,15 +1,15 @@
 import React, {useEffect, useState} from "react";
-
-
 import './App.css';
 import WeatherDrawer from './views/weather_drawer/WeatherDrawer';
 import { useTheme, createTheme, ThemeProvider } from '@mui/material/styles';
 import axios from "axios";
-import Dashboard from "./views/main_dashboard/Dashboard";
+import Backdrop from "@mui/material/Backdrop";
+import  CircularProgress  from "@mui/material/CircularProgress";
 
 function App() {
   const [cityData, setCityData] = useState([]);
-
+const [city, setCity] = useState(4832038);
+const [isLoading, setIsLoading] = useState(false);
   const theme= createTheme({
     palette:{
       primary:{
@@ -22,9 +22,16 @@ function App() {
   })
 
   const cityId =4832038;
+
+
+  const changeCity = (cityValue) =>{
+    setIsLoading(true);
+    setCity(cityValue)
+  }
+
   useEffect(() => {
-  
-    axios.get(`https://api.openweathermap.org/data/2.5/forecast?id=${cityId}&appid=ef35eb3af57aad7072ef9dc85f1ede6e`)
+
+    axios.get(`https://api.openweathermap.org/data/2.5/forecast?id=${city}&appid=ef35eb3af57aad7072ef9dc85f1ede6e`)
     .then((result) =>
     {
       setCityData(result.data)
@@ -33,18 +40,25 @@ function App() {
       
     }
     )
+    setIsLoading(false)
   
     return () => {
       
     }
-  }, [cityId])
+  }, [city])
   
   return (
     <div className="App">
       <ThemeProvider theme={theme}>
         <div >
-        <WeatherDrawer weatherData={cityData}/>
-
+        {isLoading ? <Backdrop
+        sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+        open={true}
+      >
+        <CircularProgress color="inherit" />
+      </Backdrop> :
+        <WeatherDrawer changeCity={changeCity} weatherData={cityData}/>
+        }
         </div>
     
       </ThemeProvider>

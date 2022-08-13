@@ -5,13 +5,16 @@ import CssBaseline from '@mui/material/CssBaseline';
 import AppBar from '@mui/material/AppBar';
 
 import Typography from '@mui/material/Typography';
-
+import Autocomplete from '@mui/material/Autocomplete';
+import TextField from '@mui/material/TextField';
 import './weather-drawer.css';
 import Dashboard from '../main_dashboard/Dashboard';
 import DateRangeIcon from '@mui/icons-material/DateRange';
+import {cityList} from '../../data/cityList';
+
 const drawerWidth = 350;
 
-export default function WeatherDrawer({weatherData}) {
+export default function WeatherDrawer({weatherData, changeCity}) {
 
 var time = new Date(weatherData.list && weatherData.list[0].dt_txt)
 
@@ -72,8 +75,17 @@ dateValue = monthNames[month]  + " " + day + ', ' + year;
       >
 
         <Typography sx={{color:'#f0f0f0', marginTop:'1rem'}} variant="h4">Today's Forecast</Typography>
-        
-        <img style={{width:'405px', marginTop:'5rem'}} src="../../assets/cloudy.svg" alt="weather_image"/>
+        <div style={{margin:'10px', marginLeft:'25px'}}>
+       <Autocomplete
+       onChange={(e, value) => changeCity(value.id)}
+  disablePortal
+  id="combo-box-demo"
+  options={cityList}
+  sx={{ width: 300 }}
+  renderInput={(params) => <TextField {...params} label="Select City" />}
+/>
+       </div>
+        <img style={{width:'405px', marginTop:'5rem'}} src="./assets/cloudy.svg" alt="weather_image"/>
         <div style={{marginLeft:'15px'}}>
         <div>
               <div style={{display:'flex'}}>
@@ -106,6 +118,7 @@ dateValue = monthNames[month]  + " " + day + ', ' + year;
         <br></br>
         <Typography style={{color:'#f0f0f0', marginLeft:'10px'}} variant="h6">{weatherData.city && weatherData.city.name}</Typography>
        </div>
+
        </div>
       </Drawer>
       <Box
