@@ -6,20 +6,18 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import './day-forecast.css';
+
+
+export default function DayForecastCard({dayForecast, getDayForecastData, hours, dayName}) {
 
 
 
-export default function DayForecastCard({dayForecast}) {
-
-    var days =['Sun', 'Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat'];
-    var d = new Date(dayForecast.dt_txt) 
-    var hours = d.getHours();
-    var dayName = days[d.getDay()]
 
   return (
     <>
     {hours === 0 &&
-      <Card sx={{ minWidth: 250,minHeight:275, margin:'8px'}}>
+      <Card className="forecast-card" onClick={getDayForecastData} sx={{ minWidth: 250,minHeight:200, margin:'8px'}}>
       <CardContent>
         <Typography variant="h6"  gutterBottom>
         {dayName}

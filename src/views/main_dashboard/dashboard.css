@@ -11,3 +11,7 @@ svg > g[class^="raphael-group-"] > text{
    fill: #fdfdfd !important;
 }
 
+
+.css-tzssek-MuiSvgIcon-root {
+    color:#4dabf5 !important;
+}

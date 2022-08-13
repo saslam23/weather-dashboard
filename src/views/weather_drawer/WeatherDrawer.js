@@ -13,18 +13,21 @@ const drawerWidth = 350;
 
 export default function WeatherDrawer({weatherData}) {
 
-var time = new Date()
+var time = new Date(weatherData.list && weatherData.list[0].dt_txt)
+
+
+var realTime = new Date()
 
 const monthNames = ["January", "February", "March", "April", "May", "June",
   "July", "August", "September", "October", "November", "December"
 ];
 
 
-var hours = time.getHours();
-var minutes = time.getMinutes();
-var month = time.getMonth();
-var day = time.getDate();
-var year = time.getFullYear();
+var hours = realTime.getHours();
+var minutes = realTime.getMinutes();
+var month = realTime.getMonth();
+var day = realTime.getDate();
+var year = realTime.getFullYear();
 
 var timeValue;
 var dateValue;
@@ -37,7 +40,7 @@ if (hours > 0 && hours <= 12) {
 }
  
 timeValue += (minutes < 10) ? ":0" + minutes : ":" + minutes;  // get minutes
-timeValue += (hours >= 12) ? " P.M." : " A.M.";  // get AM/P
+timeValue += (hours >= 12) ? " p.m." : " a.m.";  // get AM/P
 
 dateValue = monthNames[month]  + " " + day + ', ' + year;
   return (
@@ -98,10 +101,10 @@ dateValue = monthNames[month]  + " " + day + ', ' + year;
        <div style={{textAlign:'start'}}>
         <div style={{display:'flex', alignItems:'center',marginLeft:'10px'}}>
 
-        <DateRangeIcon style={{marginRight:'10px', color:"#f0f0f0"}}/> <Typography style={{color:'#f0f0f0'}} variant="h5">{dateValue} {timeValue}</Typography>
+        <DateRangeIcon style={{marginRight:'10px', color:"#f0f0f0"}}/> <Typography style={{color:'#f0f0f0'}} variant="h6">{dateValue} {timeValue}</Typography>
         </div>
         <br></br>
-        <Typography style={{color:'#f0f0f0', marginLeft:'10px'}} variant="h5">{weatherData.city && weatherData.city.name}</Typography>
+        <Typography style={{color:'#f0f0f0', marginLeft:'10px'}} variant="h6">{weatherData.city && weatherData.city.name}</Typography>
        </div>
        </div>
       </Drawer>
@@ -109,7 +112,7 @@ dateValue = monthNames[month]  + " " + day + ', ' + year;
         component="main"
         sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
       >
-      <Dashboard weatherData={weatherData}/>
+      <Dashboard dateValue={dateValue}  weatherData={weatherData}/>
       </Box>
     </Box>
   );

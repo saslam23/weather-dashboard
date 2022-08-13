@@ -1,6 +1,14 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 
 export default function ValueCard({title, value, icon}) {
+  useEffect(() => {
+  
+
+    return () => {
+      
+    }
+  }, [value])
+  
   return (
     <div >
          <h2>{title}</h2>

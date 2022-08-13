@@ -1,7 +1,7 @@
 // STEP 1 - Include Dependencies
 
 // Include react
-import React from 'react';
+import React, {useEffect} from 'react';
 import ReactDOM from 'react-dom';
 
 // Include the react-fusioncharts component
@@ -22,7 +22,7 @@ ReactFC.fcRoot(FusionCharts, Widgets, FusionTheme);
 
 
 // STEP 3 - Creating the DOM element to pass the react-fusioncharts component
-export default function Linear({humidity}){
+export default function Linear({value}){
 
  
   
@@ -30,7 +30,7 @@ export default function Linear({humidity}){
   const chartConfigs = {
       type: 'hlineargauge',// The chart type
       width: '100%', // Width of the chart
-      height: '120',
+      height: '110',
       backgroundColor: "#f9f9f9", // Height of the chart
       dataFormat: 'json', // Data type
       dataSource: {
@@ -40,7 +40,8 @@ export default function Linear({humidity}){
             subcaption: "",
             numbersuffix: "",
             gaugefillmix: "{dark-20},{light+70},{dark-10}",
-            theme: "fusion"
+            theme: "fusion",
+            "showTickMarks": "0",
           },
           colorrange: {
         
@@ -54,7 +55,7 @@ export default function Linear({humidity}){
               },
               
               {
-                minvalue: humidity,
+                minvalue: value,
                 maxvalue: "100",
                 label: "",
                 code: "#f0f0f0"
@@ -64,17 +65,26 @@ export default function Linear({humidity}){
           pointers: {
             pointer: [
               {
-                value: humidity
+                value: value
               }
             ]
           }
       }
   }
+
+  useEffect(() => {
+  
+
+    return () => {
+      
+    }
+  }, [value])
+  
   
      return (
         <>
          <h2>Humidity</h2>
-    <div style={{marginTop:"4rem"}}>
+    <div style={{marginTop:'4rem'}}>
      <ReactFC
         {...chartConfigs}/>
         </div>          

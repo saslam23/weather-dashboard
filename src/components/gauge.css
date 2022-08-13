@@ -1,0 +1,32 @@
+.sunrise{
+    position:absolute; bottom:48%; left:10%; z-index:1;
+}
+.sunset{
+    position:absolute; bottom:48%; right:10%; z-index:1;
+}
+
+@media screen and (min-width: 2000px) {
+    .sunset{
+        right: 12%;
+    }
+    .sunrise{
+        left:12%;
+    }
+}
+@media screen and (min-width: 2200px) {
+    .sunset{
+        right: 20%;
+    }
+    .sunrise{
+        left:20%;
+    }
+}
+
+@media screen and (min-width: 2500px) {
+    .sunset{
+        right: 21%;
+    }
+    .sunrise{
+        left:21%;
+    }
+}

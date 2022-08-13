@@ -1,7 +1,7 @@
 // STEP 1 - Include Dependencies
 
 // Include react
-import React from 'react';
+import React, {useEffect} from 'react';
 import ReactDOM from 'react-dom';
 
 // Include the react-fusioncharts component
@@ -24,6 +24,13 @@ ReactFC.fcRoot(FusionCharts, Widgets, FusionTheme);
 // STEP 3 - Creating the DOM element to pass the react-fusioncharts component
 export default function Donut({value}){
     //STEP 2 - Defining the dataset for the angular gauge along with the color configuration
+useEffect(() => {
+  
+
+  return () => {
+    
+  }
+}, [value])
 
   
   // STEP 3 - Creating the JSON object to store the chart configurations
@@ -96,7 +103,7 @@ export default function Donut({value}){
      return (
         <>
         <h2>Wind Status</h2>
-        <div>
+        <div style={{display:'flex', justifyContent:'center'}}>
      <ReactFC
 
         {...chartConfigs}/>

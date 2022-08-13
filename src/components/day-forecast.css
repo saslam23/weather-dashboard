@@ -1,0 +1,11 @@
+.forecast-card:hover{
+    transform:scale(.9);
+    transition:all 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+.css-4issou-MuiPaper-root-MuiAppBar-root {
+    box-shadow:none !important;
+    color: black !important;
+    background-color:transparent !important;
+}
