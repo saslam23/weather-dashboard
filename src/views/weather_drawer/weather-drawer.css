@@ -5,3 +5,7 @@
 .MuiAutocomplete-hasPopupIcon.css-1na68kg .MuiOutlinedInput-root{
     background-color:white !important;
 }
+.css-1izf6b2-MuiFormLabel-root-MuiInputLabel-root{
+    background-color:white !important;
+    padding: 0 3px !important;
+}

@@ -9,6 +9,7 @@ import  CircularProgress  from "@mui/material/CircularProgress";
 function App() {
   const [cityData, setCityData] = useState([]);
 const [city, setCity] = useState(4832038);
+const [cityLabel, setCityLabel] = useState('');
 const [isLoading, setIsLoading] = useState(false);
   const theme= createTheme({
     palette:{
@@ -25,8 +26,17 @@ const [isLoading, setIsLoading] = useState(false);
 
 
   const changeCity = (cityValue) =>{
-    setIsLoading(true);
-    setCity(cityValue)
+    if(cityValue === null){
+      setIsLoading(false);
+    }
+    if(cityValue.id !== city){
+      setIsLoading(true);
+      setCity(cityValue.id)
+    }
+    else{
+      return;
+    }
+    setCityLabel(cityValue.label)
   }
 
   useEffect(() => {
@@ -57,7 +67,7 @@ const [isLoading, setIsLoading] = useState(false);
       >
         <CircularProgress color="inherit" />
       </Backdrop> :
-        <WeatherDrawer changeCity={changeCity} weatherData={cityData}/>
+        <WeatherDrawer cityLabel={cityLabel} changeCity={changeCity} weatherData={cityData}/>
         }
         </div>
     

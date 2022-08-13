@@ -1,4 +1,4 @@
-import * as React from 'react';
+import  React, {useState} from 'react';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -14,7 +14,7 @@ import {cityList} from '../../data/cityList';
 
 const drawerWidth = 350;
 
-export default function WeatherDrawer({weatherData, changeCity}) {
+export default function WeatherDrawer({weatherData, changeCity, cityLabel}) {
 
 var time = new Date(weatherData.list && weatherData.list[0].dt_txt)
 
@@ -77,7 +77,11 @@ dateValue = monthNames[month]  + " " + day + ', ' + year;
         <Typography sx={{color:'#f0f0f0', marginTop:'1rem'}} variant="h4">Today's Forecast</Typography>
         <div style={{margin:'10px', marginLeft:'25px'}}>
        <Autocomplete
-       onChange={(e, value) => changeCity(value.id)}
+       onChange={(e, value) =>{ 
+        changeCity(value)
+     
+      }}
+      value={cityLabel}
   disablePortal
   id="combo-box-demo"
   options={cityList}
