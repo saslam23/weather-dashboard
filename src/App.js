@@ -9,7 +9,7 @@ import  CircularProgress  from "@mui/material/CircularProgress";
 function App() {
   const [cityData, setCityData] = useState([]);
 const [city, setCity] = useState(4832038);
-const [cityLabel, setCityLabel] = useState('');
+const [cityLabel, setCityLabel] = useState('Glendale Heights');
 const [isLoading, setIsLoading] = useState(false);
   const theme= createTheme({
     palette:{
