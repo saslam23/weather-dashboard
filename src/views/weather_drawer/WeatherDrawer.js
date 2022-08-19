@@ -15,7 +15,7 @@ import {cityList} from '../../data/cityList';
 
 const drawerWidth = 350;
 
-export default function WeatherDrawer({weatherData, changeCity, cityLabel, isLoading}) {
+export default function WeatherDrawer({weatherData, changeCity, cityLabel, isLoading, city}) {
 
 var time = new Date(weatherData.list && weatherData.list[0].dt_txt)
 
@@ -140,7 +140,7 @@ dateValue = monthNames[month]  + " " + day + ', ' + year;
         component="main"
         sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
       >
-      <Dashboard dateValue={dateValue}  weatherData={weatherData}/>
+      <Dashboard city={city} dateValue={dateValue}  weatherData={weatherData}/>
       </Box>
     </Box>
     </>

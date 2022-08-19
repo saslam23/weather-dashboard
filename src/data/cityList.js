@@ -1,5 +1,15 @@
 const cityList=[
     {
+        "id": 3582383,
+        "label": "Chicago",
+        "state": "IL",
+        "country": "BZ",
+        "coord": {
+            "lon": -88.300003,
+            "lat": 17.799999
+        }
+    },
+    {
         "id": 4893811,
         "label": "Glen Ellyn",
         "state": "IL",

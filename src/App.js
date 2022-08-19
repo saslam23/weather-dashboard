@@ -8,7 +8,7 @@ import axios from "axios";
 function App() {
   const [cityData, setCityData] = useState([]);
 const [city, setCity] = useState(4832038);
-const [cityLabel, setCityLabel] = useState('Glendale Heights');
+const [cityLabel, setCityLabel] = useState('Glendale Heights, IL');
 const [isLoading, setIsLoading] = useState(false);
   const theme= createTheme({
     palette:{
@@ -35,7 +35,7 @@ const [isLoading, setIsLoading] = useState(false);
     else{
       return;
     }
-    setCityLabel(cityValue.label)
+    setCityLabel(cityValue.label + ', ' + cityValue.state)
   }
 
   useEffect(() => {
@@ -45,7 +45,7 @@ const [isLoading, setIsLoading] = useState(false);
     {
       setCityData(result.data)
   
-      
+     console.log(result.data) 
     }
     )
     setIsLoading(false)
@@ -60,7 +60,7 @@ const [isLoading, setIsLoading] = useState(false);
       <ThemeProvider theme={theme}>
         <div >
 
-        <WeatherDrawer isLoading={isLoading} cityLabel={cityLabel} changeCity={changeCity} weatherData={cityData}/>
+        <WeatherDrawer city={city} isLoading={isLoading} cityLabel={cityLabel} changeCity={changeCity} weatherData={cityData}/>
 
         </div>
     

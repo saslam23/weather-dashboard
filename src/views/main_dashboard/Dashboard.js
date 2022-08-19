@@ -60,7 +60,7 @@ function a11yProps(index) {
 
 
 
-export default function Dashboard({weatherData, dateValue}) {
+export default function Dashboard({weatherData, dateValue, city}) {
   ReactFC.fcRoot(FusionCharts, Column2D, FusionTheme);
   var currentDay = new Date();
   const days =['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
@@ -191,7 +191,7 @@ const handleChangeIndex = (index) => {
         return () => {
           
         }
-      }, [weatherData, dayOfWeek])
+      }, [weatherData, dayOfWeek, city])
       
   return (
     <>
